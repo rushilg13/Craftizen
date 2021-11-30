@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+    <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+
+<body>
+    <div class="sticky">
+        <h1 style="text-align: center;">Craftizen</h1>
+    </div>
+    <div class="nav">
+        <p><a href="/">Home</a> > <a href="">Request Materials</a></p>
+    </div>
+    <ul class="headbar">
+        <li><a href="">My Products</a></li>
+        <li><a href="./neworders">New Orders</a></li>
+        <li><a href="./addproducts">Add New Products</a></li>
+        <li><a href="./sales">My Sales</a></li>
+    </ul>
+    <div class="centerthis">
+        <br><br>
+        <form action="/requested" method="POST">
+            <table>
+                <tr>
+                    <td><label for="req_mat">Requested Material: </label></td>
+                    <td><input type="text" name="req_mat" placeholder="Requested Material"> </td>
+                </tr>
+                <tr>
+                    <td><label for="req_desc">Requested Material Description: </label></td>
+                    <td><input type="text" name="req_desc" placeholder="Requested Material Description"> </td>
+                </tr>
+                <tr>
+                    <td><label for="qty">Requested Material Quantity: </label></td>
+                    <td><input type="number" name="qty" placeholder="Requested Material Quantity"> </td>
+                </tr>
+                <tr>
+                    <td><label for="when">When is it Required: </label></td>
+                    <td><input type="date" name="when" placeholder="When"> </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+
+</html>

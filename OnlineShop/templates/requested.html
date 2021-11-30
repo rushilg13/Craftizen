@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+    <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+
+<body>
+    <div class="sticky">
+        <h1 style="text-align: center;">Craftizen</h1>
+    </div>
+    <div class="nav">
+        <p><a href="/">Home</a> > <a href="/request">Request Materials</a></p>
+    </div>
+    <ul class="headbar">
+        <li><a href="">My Products</a></li>
+        <li><a href="./neworders">New Orders</a></li>
+        <li><a href="./addproducts">Add New Products</a></li>
+        <li><a href="./sales">My Sales</a></li>
+    </ul>
+    <div class="centerthis">
+        <br><br>
+        <p>Your Request for:</p>
+        <table>
+            <tr>
+                <td>Material:</td>
+                <td>{{name}} </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{desc}}</td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>{{qty}}</td>
+            </tr>
+            <tr>
+                <td>When is it Required:</td>
+                <td>{{date}}</td>
+            </tr>
+        </table>
+        is Recieved. We will reach out to you at the earliest. Thank you!
+    </div>
+</body>
+
+</html>
