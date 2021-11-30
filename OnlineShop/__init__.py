@@ -425,9 +425,31 @@ def delete_prod_cart(prodID):
     return redirect(url_for('my_cart'))
 
 
+@app.route("/request")
+def request_raw():
+    if 'userid' not in session:
+        return redirect(url_for('home'))
+    if session['type'] != "Seller":
+        abort(403)
+    return render_template('request.html')
+
+@app.route("/requested", methods=["POST"])
+def requested():
+    if 'userid' not in session:
+        return redirect(url_for('home'))
+    if session['type'] != "Seller":
+        abort(403)
+    if request.method == "POST":
+        material = request.form['req_mat']
+        desc = request.form['req_desc']
+        qty = request.form['qty']
+        date = request.form['when']
+        print(material, desc, qty, date)
+    return render_template('requested.html', name=material, desc=desc, qty=qty, date=date)
+
 app.config['SECRET_KEY'] = os.urandom(17)
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 sess.init_app(app)
 if __name__=="__main__":
-	app.run(hostname='192.168.43.163')
+	app.run(debug=True)
